@@ -13,15 +13,20 @@ assessmentButton.addEventListener(
     }
     //診断結果表示エリア
     resultDivision.innerText = ''//上書きで空にする
-    const header = document.createElement('h3')//h3タグ作成
-    header.innerText = '診断結果'//タグ内側のテキストを設定
-    resultDivision.appendChild(header)//divタグの子要素として追加
+    const headerDivision = document.createElement('div')//h3タグ作成
+    headerDivision.setAttribute('class', 'card-header text-bg-primary')
+    headerDivision.innerText = '診断結果'//タグ内側のテキストを設定
+    resultDivision.appendChild(headerDivision)//divタグの子要素として追加
 
+    const bodyDivision = document.createElement('div')
+    bodyDivision.setAttribute('class', 'card-body')
     const paragraph = document.createElement('p')//pタグ作成
+    paragraph.setAttribute('class', 'card-text')
     const result = assessment(userName)//診断結果の作成
     paragraph.innerText = result//タグ内側のテキスト設定
-    resultDivision.appendChild(paragraph)//divタグの子要素として追加
-
+    bodyDivision.appendChild(paragraph)
+    resultDivision.appendChild(bodyDivision)//divタグの子要素として追加
+    resultDivision.setAttribute('class', 'card')
     tweetDivision.innerText = ''
     const anchor = document.createElement('a')
     const hrefValue =
